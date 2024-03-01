@@ -1,8 +1,14 @@
-from src.reader import fetch_data
-from src.data_processing import apply_median_filter, convert_timestamps_to_datetime, calculate_sampling_rate, \
-    reformat_data, process_data_for_pv
-from src.anomaly_functions import find_anomalies_std
+import os
+import sys
 import matplotlib.pyplot as plt
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.join(script_dir, '..')
+sys.path.append(project_root)
+
+from src.reader import fetch_data
+from src.data_processing import process_data_for_pv
+
 
 PV_LIST = [
     "LabS-MCAG:MC-MCU-06:PTPOffset",
